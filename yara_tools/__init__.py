@@ -75,7 +75,7 @@ class yara_tools(object):
 
 	def raw_to_hex(self, raw_data):
 		"""."""
-		return str(binascii.hexlify(raw_data))
+		return binascii.hexlify(bytearray(raw_data, 'utf-8')).decode('utf-8')
 
 	def add_import(self, name):
 		"""."""
