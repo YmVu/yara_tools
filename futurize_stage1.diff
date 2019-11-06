@@ -1,0 +1,144 @@
+--- ./examples/example1.py	(original)
++++ ./examples/example1.py	(refactored)
+@@ -24,6 +24,7 @@
+ 
+ }
+ '''
++from __future__ import print_function
+ 
+ import yara_tools
+ import yara
+@@ -44,8 +45,8 @@
+ 
+ try:
+ 	compiled_rule = yara.compile(source=generated_rule)
+-	print generated_rule
+-	print "SUCCESS: IT WORKED!"
++	print(generated_rule)
++	print("SUCCESS: IT WORKED!")
+ except Exception as e:
+-	print "Failed... oh noes! %s" % e
+-	print generated_rule
++	print("Failed... oh noes! %s" % e)
++	print(generated_rule)
+--- ./examples/example2.py	(original)
++++ ./examples/example2.py	(refactored)
+@@ -24,6 +24,7 @@
+ 		any of ($xorstring*)
+ 
+ '''
++from __future__ import print_function
+ import yara_tools
+ import yara
+ 
+@@ -45,8 +46,8 @@
+ 
+ try:
+ 	compiled_rule = yara.compile(source=generated_rule)
+-	print generated_rule
+-	print "SUCCESS: IT WORKED!"
++	print(generated_rule)
++	print("SUCCESS: IT WORKED!")
+ except Exception as e:
+-	print "Failed... oh noes! %s" % e
+-	print generated_rule
++	print("Failed... oh noes! %s" % e)
++	print(generated_rule)
+--- ./examples/example3.py	(original)
++++ ./examples/example3.py	(refactored)
+@@ -26,6 +26,7 @@
+ }
+ 
+ '''
++from __future__ import print_function
+ import yara_tools
+ import yara
+ import pefile
+@@ -55,8 +56,8 @@
+ 
+ try:
+ 	compiled_rule=yara.compile(source=generated_rule)
+-	print generated_rule
+-	print "SUCCESS: IT WORKED!"
++	print(generated_rule)
++	print("SUCCESS: IT WORKED!")
+ except Exception as e:
+-	print "Failed... oh noes! %s" % e
+-	print generated_rule
++	print("Failed... oh noes! %s" % e)
++	print(generated_rule)
+--- ./examples/example4.py	(original)
++++ ./examples/example4.py	(refactored)
+@@ -25,6 +25,7 @@
+ }
+ 
+ '''
++from __future__ import print_function
+ import yara_tools
+ import yara
+ import base64
+@@ -79,8 +80,8 @@
+ 
+ try:
+ 	compiled_rule = yara.compile(source=generated_rule)
+-	print generated_rule
+-	print "SUCCESS: IT WORKED!"
++	print(generated_rule)
++	print("SUCCESS: IT WORKED!")
+ except Exception as e:
+-	print "Failed... oh noes! %s" % e
+-	print generated_rule
++	print("Failed... oh noes! %s" % e)
++	print(generated_rule)
+--- ./examples/example5.py	(original)
++++ ./examples/example5.py	(refactored)
+@@ -78,6 +78,7 @@
+ 
+ 
+ '''
++from __future__ import print_function
+ import yara_tools
+ import yara
+ 
+@@ -145,8 +146,8 @@
+ 
+ try:
+ 	compiled_rule = yara.compile(source=generated_rule)
+-	print generated_rule
+-	print "SUCCESS: IT WORKED!"
++	print(generated_rule)
++	print("SUCCESS: IT WORKED!")
+ except Exception as e:
+-	print "Failed... oh noes! %s" % e
+-	print generated_rule
++	print("Failed... oh noes! %s" % e)
++	print(generated_rule)
+--- ./examples/example6.py	(original)
++++ ./examples/example6.py	(refactored)
+@@ -20,6 +20,7 @@
+ 
+ }
+ '''
++from __future__ import print_function
+ 
+ import yara_tools
+ 
+@@ -47,4 +48,4 @@
+ rule.add_condition("c3",condition_group='c3')
+ 
+ 
+-print rule.build_rule(condition_groups=True)
++print(rule.build_rule(condition_groups=True))
+--- ./examples/example7.py	(original)
++++ ./examples/example7.py	(refactored)
+@@ -1,3 +1,4 @@
++from __future__ import print_function
+ # Copyright
+ # =========
+ # Copyright (C) 2012 Trustwave Holdings, Inc.
+@@ -100,4 +101,4 @@
+     print("[+] Adding comment "+str(hex(new_ref))+" : \""+decoded_string+"\"")
+ 
+ #::Print our rule to console    
+-print rule.build_rule()
++print(rule.build_rule())

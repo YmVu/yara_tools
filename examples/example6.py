@@ -20,6 +20,7 @@ rule nested_masters
 
 }
 '''
+from __future__ import print_function
 
 import yara_tools
 
@@ -47,4 +48,4 @@ rule.add_condition("c2",condition_group='c2')
 rule.add_condition("c3",condition_group='c3')
 
 
-print rule.build_rule(condition_groups=True)
+print(rule.build_rule(condition_groups=True))

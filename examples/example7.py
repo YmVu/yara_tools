@@ -1,3 +1,4 @@
+from __future__ import print_function
 # Copyright
 # =========
 # Copyright (C) 2012 Trustwave Holdings, Inc.
@@ -100,4 +101,4 @@ for ref in CodeRefsTo(base_value, 1):
     print("[+] Adding comment "+str(hex(new_ref))+" : \""+decoded_string+"\"")
 
 #::Print our rule to console    
-print rule.build_rule()
+print(rule.build_rule())

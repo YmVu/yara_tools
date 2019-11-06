@@ -78,6 +78,7 @@ rule kaspersky_stonedrill : apt33 stonedrill
 
 
 '''
+from __future__ import print_function
 import yara_tools
 import yara
 
@@ -145,8 +146,8 @@ generated_rule = rule.build_rule(condition_groups=True)
 
 try:
 	compiled_rule = yara.compile(source=generated_rule)
-	print generated_rule
-	print "SUCCESS: IT WORKED!"
+	print(generated_rule)
+	print("SUCCESS: IT WORKED!")
 except Exception as e:
-	print "Failed... oh noes! %s" % e
-	print generated_rule
+	print("Failed... oh noes! %s" % e)
+	print(generated_rule)
