@@ -1,6 +1,10 @@
 """A library to create YARA rules.
 """
 
+from builtins import chr
+from builtins import str
+from builtins import range
+from builtins import object
 import binascii
 from copy import deepcopy
 import collections
@@ -118,7 +122,7 @@ class yara_tools(object):
 
 		def proc_child(parent, child_name):
 
-			if parent in dict(self.__condition_groups).keys():
+			if parent in list(dict(self.__condition_groups).keys()):
 				if self.__condition_groups[parent]['children']:
 					self.__condition_groups[parent][
 						'children'].append(child_name)
@@ -569,7 +573,7 @@ class yara_tools(object):
 							'conditions'].append(cd)
 
 		#::uniq it::#
-		for identifier, id_dict in identifier_collections.items():
+		for identifier, id_dict in list(identifier_collections.items()):
 			identifier_collections[identifier][
 				'strings'] = id_dict['strings']
 			identifier_collections[identifier][
@@ -663,7 +667,7 @@ class yara_tools(object):
 			#::since conditions groups are in an ordered structure, process in reverse
 			#::to ensure all parents are initalized, excluding root node
 			#::Leaf
-			for name in reversed(int_condition_groups.keys()):
+			for name in reversed(list(int_condition_groups.keys())):
 				group_struct = int_condition_groups[name]
 				if group_struct['parent'] and not group_struct['children']:
 					if type(group_struct['parent']) == list:
@@ -678,7 +682,7 @@ class yara_tools(object):
 								group_struct), condition_group=group_struct['parent'], prototype=prototype)
 
 			#::Internal
-			for name in reversed(int_condition_groups.keys()):
+			for name in reversed(list(int_condition_groups.keys())):
 				group_struct = int_condition_groups[name]
 				if group_struct['parent'] and group_struct['children']:
 					if type(group_struct['parent']) == list:
@@ -693,7 +697,7 @@ class yara_tools(object):
 								group_struct), condition_group=group_struct['parent'], prototype=prototype)
 
 			#::Root
-			for name, group_struct in int_condition_groups.items():
+			for name, group_struct in list(int_condition_groups.items()):
 				#::iterate through our children
 				if group_struct['children']:
 					for child in group_struct['children']:
@@ -704,7 +708,7 @@ class yara_tools(object):
 
 			#::If we are root node (no parents) and not a virtual group, add us as condition
 			if int_condition_groups:
-				for name, group_struct in int_condition_groups.items():
+				for name, group_struct in list(int_condition_groups.items()):
 					if not group_struct['virtual'] and not group_struct['parent']:
 						self.add_condition(condition=self.proc_cond_str(
 							group_struct), prototype=prototype)
@@ -729,7 +733,7 @@ class yara_tools(object):
 
 		tmp_meta = list()
 		for meta in self.__rule_meta:
-			for key, value in meta.items():
+			for key, value in list(meta.items()):
 				tmp_meta.append("%s=\"%s\"" % (key, value))
 
 		return "\tmeta:\n\t\t%s\n" % "\n\t\t".join(tmp_meta)

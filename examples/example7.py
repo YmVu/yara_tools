@@ -56,6 +56,9 @@ from __future__ import print_function
 # user with both the location of the unk, as well as the decoded string.
 #
 
+from builtins import str
+from builtins import hex
+from builtins import chr
 import sys
 import binascii
 import re

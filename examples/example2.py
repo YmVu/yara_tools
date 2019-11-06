@@ -25,6 +25,9 @@ rule more_xor
 
 '''
 from __future__ import print_function
+from builtins import chr
+from builtins import hex
+from builtins import range
 import yara_tools
 import yara
 
